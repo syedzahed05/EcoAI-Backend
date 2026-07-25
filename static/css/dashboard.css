@@ -1,0 +1,970 @@
+/* ==========================================================
+   EcoAI Dashboard
+   Professional Hackathon UI
+========================================================== */
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+    background:#f4f7f6;
+
+    color:#333;
+
+    overflow-x:hidden;
+
+    line-height:1.6;
+
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf3ed;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2e7d32;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1b5e20;
+
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:linear-gradient(180deg,#1b5e20,#2e7d32);
+
+    color:#fff;
+
+    padding:30px 20px;
+
+    box-shadow:6px 0 20px rgba(0,0,0,.15);
+
+    z-index:1000;
+
+}
+
+/* ================= LOGO ================= */
+
+.logo-area{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo-area h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:5px;
+
+}
+
+.logo-area p{
+
+    font-size:14px;
+
+    opacity:.85;
+
+}
+
+/* ================= MENU ================= */
+
+.sidebar ul{
+
+    list-style:none;
+
+    padding-left:0;
+
+}
+
+.sidebar ul li{
+
+    margin:15px 0;
+
+}
+
+.sidebar ul li a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
+
+.sidebar ul li.active a{
+
+    background:#43a047;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:#4caf50;
+
+    transform:translateX(8px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+
+}
+
+/* ================= MAIN ================= */
+
+.main{
+
+    margin-left:280px;
+
+    padding:35px;
+
+}
+
+/* ================= HEADER ================= */
+
+.dashboard-header{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.page-title{
+
+    color:#1b5e20;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:5px;
+
+}
+
+.subtitle{
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+/* ================= BUTTON ================= */
+
+.btn-success{
+
+    border-radius:12px;
+
+    padding:12px 25px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-success:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(46,125,50,.25);
+
+}
+/* ==========================================================
+   KPI CARDS
+========================================================== */
+
+.dashboard-card{
+
+    background:white;
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+}
+
+.dashboard-card .display-5{
+
+    font-size:55px;
+
+}
+
+.dashboard-card h5{
+
+    margin-top:12px;
+
+    font-weight:600;
+
+    color:#555;
+
+}
+
+.dashboard-card h2{
+
+    margin-top:12px;
+
+    font-weight:700;
+
+}
+
+.dashboard-card p{
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    color:#777;
+
+}
+
+/* ==========================================================
+   NORMAL CARDS
+========================================================== */
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================================
+   ECOAI ENERGY SCORE
+========================================================== */
+
+.display-5{
+
+    font-weight:700;
+
+    color:#2e7d32;
+
+}
+
+.progress{
+
+    height:28px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:#dfe9df;
+
+}
+
+.progress-bar{
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ==========================================================
+   CHART SECTION
+========================================================== */
+
+.chart-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.chart-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.chart-card h3{
+
+    color:#1b5e20;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+
+    height:340px !important;
+
+}
+
+/* ==========================================================
+   STATUS CARD
+========================================================== */
+
+.card h4{
+
+    font-weight:700;
+
+    color:#1b5e20;
+
+}
+
+.card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.btn{
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.badge{
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+/* ==========================================================
+   TABLE SECTION
+========================================================== */
+
+.table-card{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.table-card h3{
+
+    color:#1b5e20;
+
+    font-weight:700;
+
+}
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.table thead{
+
+    background:#2e7d32;
+
+    color:#fff;
+
+}
+
+.table thead th{
+
+    border:none;
+
+    padding:15px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}
+
+.table tbody td{
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    padding:12px;
+
+}
+
+.table-hover tbody tr{
+
+    transition:.3s;
+
+}
+
+.table-hover tbody tr:hover{
+
+    background:#e8f5e9;
+
+    transform:scale(1.01);
+
+}
+
+/* ==========================================================
+   AI INSIGHTS
+========================================================== */
+
+.list-group{
+
+    border-radius:15px;
+
+}
+
+.list-group-item{
+
+    border:none;
+
+    border-bottom:1px solid #eeeeee;
+
+    padding:16px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.list-group-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.list-group-item:hover{
+
+    background:#f1f8f4;
+
+}
+
+/* ==========================================================
+   AI RECOMMENDATION
+========================================================== */
+
+.alert-primary{
+
+    background:#e3f2fd;
+
+    border:none;
+
+    border-left:5px solid #1976d2;
+
+    color:#0d47a1;
+
+    font-weight:500;
+
+}
+
+.alert-success{
+
+    background:#e8f5e9;
+
+    border:none;
+
+    border-left:5px solid #2e7d32;
+
+}
+
+.alert-warning{
+
+    background:#fff8e1;
+
+    border:none;
+
+    border-left:5px solid #f9a825;
+
+}
+
+.alert-danger{
+
+    background:#ffebee;
+
+    border:none;
+
+    border-left:5px solid #d32f2f;
+
+}
+
+.alert-info{
+
+    background:#e1f5fe;
+
+    border:none;
+
+    border-left:5px solid #0288d1;
+
+}
+
+/* ==========================================================
+   SMART ALERTS
+========================================================== */
+
+.alert{
+
+    border-radius:15px;
+
+    padding:18px;
+
+    font-size:15px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+
+}
+
+/* ==========================================================
+   ECOAI SCORE PANEL
+========================================================== */
+
+.progress{
+
+    height:30px;
+
+    border-radius:25px;
+
+    background:#dfe9df;
+
+}
+
+.progress-bar{
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   STATISTICS
+========================================================== */
+
+.card h2{
+
+    font-weight:700;
+
+}
+
+.card h3{
+
+    font-weight:700;
+
+}
+
+.card h5{
+
+    font-weight:600;
+
+}
+
+.card strong{
+
+    color:#1b5e20;
+
+}
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.footer h5{
+
+    color:#1b5e20;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.footer p{
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   HOVER EFFECTS
+========================================================== */
+
+.table-card,
+.chart-card,
+.card{
+
+    transition:all .35s ease;
+
+}
+
+.table-card:hover,
+.chart-card:hover,
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================================
+   FADE-IN ANIMATION
+========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.dashboard-header,
+.dashboard-card,
+.chart-card,
+.table-card,
+.card,
+.footer{
+
+    animation:fadeIn .8s ease;
+
+}
+
+/* ==========================================================
+   TABLE RESPONSIVE
+========================================================== */
+
+.table-responsive{
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+@media (max-width:1200px){
+
+    .chart-card canvas{
+
+        height:300px !important;
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+        padding:20px;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        padding:20px;
+
+    }
+
+    .dashboard-header{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:20px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .page-title{
+
+        font-size:30px;
+
+    }
+
+    .dashboard-card{
+
+        margin-bottom:20px;
+
+    }
+
+    .chart-card{
+
+        padding:15px;
+
+    }
+
+    .chart-card canvas{
+
+        height:260px !important;
+
+    }
+
+    .table th,
+    .table td{
+
+        font-size:13px;
+
+        padding:8px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .page-title{
+
+        font-size:26px;
+
+    }
+
+    .subtitle{
+
+        font-size:14px;
+
+    }
+
+    .dashboard-header{
+
+        padding:20px;
+
+    }
+
+    .btn-success{
+
+        width:100%;
+
+    }
+
+    .footer{
+
+        text-align:center;
+
+    }
+
+}
+
+/* ==========================================================
+   ICON ANIMATION
+========================================================== */
+
+.display-5{
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover .display-5{
+
+    transform:scale(1.15) rotate(5deg);
+
+}
+
+/* ==========================================================
+   SMOOTH TRANSITIONS
+========================================================== */
+
+a,
+button,
+.card,
+.dashboard-card,
+.chart-card,
+.alert{
+
+    transition:all .3s ease;
+
+}
+
+/* ==========================================================
+   SHADOW UTILITIES
+========================================================== */
+
+.shadow-light{
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.shadow-medium{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.shadow-heavy{
+
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+
+}
+
+/* ==========================================================
+   END OF FILE
+========================================================== */
